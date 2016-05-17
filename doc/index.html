@@ -1,0 +1,977 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="javascripts/all.js" type="text/javascript"></script>
+
+      <script>
+        $(function() {
+          setupLanguages(["c++"]);
+        });
+        $(window).on("hashchange", function () {
+					window.scrollTo(window.scrollX, window.scrollY - 58);
+				});
+      </script>
+  </head>
+
+  <body class="index">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="c++">c++</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='api/index.html'>API Reference</a></li>
+            <li><a href='examples/index.html'>Examples</a></li>
+            <li><a href='https://wiki.robocore.io'>Wiki</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="beginnings">Beginnings</h1>
+
+<p>When you start using new technology, you always need to setup your work environment first.
+Fortunately, RoboCORE has a Web IDE &ndash; you just need to go to <a href="https://platform.robocore.io/ide">platform.robocore.io/ide</a> and create a new project.</p>
+
+<p>You can also program RoboCORE without using the Web IDE, entirely on your computer. In this case you need to install the <a href="https://wiki.robocore.io/howto:installation">RoboCORE SDK</a>.</p>
+
+<h1 id="writing-programs">Writing programs</h1>
+<pre class="highlight cpp"><code><span class="cp">#include &lt;hFramework.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">hMain</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// your code!
+</span><span class="p">}</span>
+</code></pre>
+
+<p>The <code class="prettyprint">hMain</code> function is called once RoboCORE starts. Put your own code there.
+You need to include hFramework library - <code class="prettyprint">#include &lt;hFramework.h&gt;</code> does it for you.</p>
+
+<p>If you don&rsquo;t want to import whole library, you may include individual header files like <code class="prettyprint">hMotor.h</code>. </p>
+
+<blockquote>
+<p>This very simple program blinks LED1 every 500 milliseconds.</p>
+</blockquote>
+<pre class="highlight cpp"><code><span class="cp">#include &lt;hFramework.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">hMain</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">LED1</span><span class="p">.</span><span class="n">toggle</span><span class="p">();</span>
+        <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_l_e_d.html">hLED API docs</a> &ndash; Controls the on-board LED.<br></li>
+<li><a href="api/classh_framework_1_1h_system.html">hSystem API docs</a> &ndash; RTOS (Real-Time operating system) interface.<br></li>
+</ul>
+
+<h1 id="leds">LEDs</h1>
+<pre class="highlight cpp"><code><span class="n">LED1</span><span class="p">.</span><span class="n">off</span><span class="p">();</span> <span class="c1">// initially off
+</span><span class="n">LED2</span><span class="p">.</span><span class="n">on</span><span class="p">();</span> <span class="c1">// LED2 will stay on
+</span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">LED1</span><span class="p">.</span><span class="n">toggle</span><span class="p">();</span> <span class="c1">// toggle LED1
+</span>    <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span> <span class="c1">// wait for 500 ms
+</span><span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="led_onoff.cpp"></div>
+
+<p>RoboCORE has 3 builtin LEDs (LED1, LED2, LED3) that you can enable, disable and toggle.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_l_e_d.html">hLED API docs</a> &ndash; Controls the on-board LED.<br></li>
+</ul>
+
+<h1 id="serial">Serial</h1>
+<pre class="highlight cpp"><code><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">available</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Serial</span><span class="p">.</span><span class="n">getch</span><span class="p">();</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="k">case</span> <span class="sc">'q'</span><span class="p">:</span>
+            <span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">"function 1</span><span class="se">\r\n</span><span class="s">"</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="sc">'a'</span><span class="p">:</span>
+            <span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">"function 2</span><span class="se">\r\n</span><span class="s">"</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">"you pressed '%c'</span><span class="se">\r\n</span><span class="s">"</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="serial.cpp"></div>
+
+<p>Serial is used for communication between RoboCORE and other devices.</p>
+
+<p>RoboCORE has several serial interfaces:</p>
+
+<ul>
+<li><code class="prettyprint">Serial</code> &ndash; the <a href="https://wiki.robocore.io/hardware:usb_device">USB-serial</a> interface</li>
+<li><code class="prettyprint">hExt1.serial</code> &ndash; the serial interface on <a href="https://wiki.robocore.io/hardware:hext">hExt1</a></li>
+<li><code class="prettyprint">hExt2.serial</code> &ndash; the serial interface on <a href="https://wiki.robocore.io/hardware:hext">hExt2</a></li>
+<li><code class="prettyprint">Edison</code> &ndash; the serial interface to <a href="https://wiki.robocore.io/edison:start">Intel Edison</a>. You shouldn&rsquo;t directly use it in normal configurations.</li>
+<li>hSensors 3 (see <a href="#hsensors">the chapter about hSensors</a>)</li>
+</ul>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_serial.html">hSerial API docs</a> &ndash; Serial port (UART) interface.<br></li>
+<li><a href="api/classh_framework_1_1h_l_e_d.html">hLED API docs</a> &ndash; Controls the on-board LED.<br></li>
+<li><a href="api/classh_framework_1_1h_ext.html">hExt API docs</a> &ndash; Interface for expansion header connector called <a class="el" href="classh_framework_1_1h_ext.html" title="Interface for expansion header connector called hExt. ">hExt</a>.<br></li>
+</ul>
+
+<h2 id="configuring-the-serial-port">Configuring the serial port</h2>
+<pre class="highlight cpp"><code><span class="c1">// configure hExt1 with baudrate == 9600, odd parity and with one stop bit
+</span><span class="n">hExt1</span><span class="p">.</span><span class="n">serial</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="mi">9600</span><span class="p">,</span> <span class="n">ODD</span><span class="p">,</span> <span class="n">ONE</span><span class="p">);</span>
+<span class="c1">// switch hSensors 3 to serial mode and configure it with baudrate == 19200 and default settings
+</span><span class="n">hSens3</span><span class="p">.</span><span class="n">selectSerial</span><span class="p">();</span>
+<span class="n">hSens3</span><span class="p">.</span><span class="n">serial</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="mi">19200</span><span class="p">);</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="serial_config.cpp"></div>
+
+<p>The main <code class="prettyprint">Serial</code> port is initialized by default with baudrate <code class="prettyprint">460800</code> and no parity.
+If you want to use other ports, you need to configure them manually using the <code class="prettyprint">init</code> function.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_serial.html">hSerial API docs</a> &ndash; Serial port (UART) interface.<br></li>
+<li><a href="api/classh_framework_1_1h_ext.html">hExt API docs</a> &ndash; Interface for expansion header connector called <a class="el" href="classh_framework_1_1h_ext.html" title="Interface for expansion header connector called hExt. ">hExt</a>.<br></li>
+<li><a href="api/classh_framework_1_1h_sensor.html">hSensor API docs</a> &ndash; base implementation for on-board <a class="el" href="classh_framework_1_1h_sensor.html" title="base implementation for on-board hSensor port. ">hSensor</a> port.<br></li>
+</ul>
+
+<h1 id="motor">Motor</h1>
+
+<p><a href="https://wiki.robocore.io/hardware:hmotor">hMotor</a> is an interface for DC motors with quadrature encoder (optionally).</p>
+<pre class="highlight cpp"><code><span class="n">sys</span><span class="p">.</span><span class="n">setLogDev</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Serial</span><span class="p">);</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">hMot1</span><span class="p">.</span><span class="n">setPower</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="n">hMot1</span><span class="p">.</span><span class="n">setPower</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">);</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="motor_simple.cpp"></div>
+
+<p><a href="api/classh_framework_1_1h_motor.html#ac89289b12180ca324f4db6e45514f093">setPower</a> is the lowest-level function which can be used to directly control the motor power.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_motor.html">hMotor API docs</a> &ndash; Provides control of on-board motor driver.<br></li>
+</ul>
+
+<h2 id="using-the-encoder-interface">Using the encoder interface</h2>
+
+<h3 id="rotrel-and-rotabs">rotRel and rotAbs</h3>
+<pre class="highlight cpp"><code><span class="c1">// rotate 10 encoder ticks right
+</span><span class="n">hMot1</span><span class="p">.</span><span class="n">rotRel</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="c1">// restore motor to original position
+</span><span class="n">hMot1</span><span class="p">.</span><span class="n">rotAbs</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="motor_angle.cpp"></div>
+
+<p>You can also use <a href="api/classh_framework_1_1h_motor.html#ae2da81f31c0d67c78bed7d2dba3cf805">rotRel</a> and <a href="api/classh_framework_1_1h_motor.html#a613df229aa643f98605d13d2ef4069c7">rotAbs</a> to directly control the motor angle. Just be aware that these methods block until the requested angle is reached by the motor</p>
+
+<p><br clear=both /></p>
+
+<h3 id="getencodercnt">getEncoderCnt</h3>
+<pre class="highlight cpp"><code><span class="kt">void</span> <span class="nf">encoder</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Print the current rotation of hMot1 in encoder ticks
+</span>        <span class="n">printf</span><span class="p">(</span><span class="s">"pos: %d</span><span class="se">\r\n</span><span class="s">"</span><span class="p">,</span> <span class="n">hMot1</span><span class="p">.</span><span class="n">getEncoderCnt</span><span class="p">());</span>
+        <span class="n">LED1</span><span class="p">.</span><span class="n">toggle</span><span class="p">();</span>
+        <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">hMain</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// This creates a task that will execute `encoder` concurrently
+</span>    <span class="n">sys</span><span class="p">.</span><span class="n">taskCreate</span><span class="p">(</span><span class="n">encoder</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Set motor power to 500
+</span>        <span class="n">hMot1</span><span class="p">.</span><span class="n">setPower</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+        <span class="c1">// Sleep for 1 second
+</span>        <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+        <span class="c1">// Set motor power to 500 (in reverse direction)
+</span>        <span class="n">hMot1</span><span class="p">.</span><span class="n">setPower</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">);</span>
+        <span class="c1">// Sleep for 1 second
+</span>        <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="motor.cpp"></div>
+
+<p>If your motor has an encoder interface you can check number of encoder ticks using <a href="api/classh_framework_1_1h_motor.html#a98d617d39eb5f8b0c67268a1fb94157e">getEncoderCnt</a> function</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_motor.html">hMotor API docs</a> &ndash; Provides control of on-board motor driver.<br></li>
+</ul>
+
+<h2 id="using-servos-connected-to-hmotors">Using servos connected to hMotors</h2>
+<pre class="highlight cpp"><code><span class="n">IServo</span><span class="o">&amp;</span> <span class="n">servo</span> <span class="o">=</span> <span class="n">hMot1</span><span class="p">.</span><span class="n">useAsServo</span><span class="p">();</span>
+<span class="c1">// minAngle, minWidth, maxAngle, maxWidth
+</span><span class="n">servo</span><span class="p">.</span><span class="n">calibrate</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">1500</span><span class="p">);</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">time</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">getRefTime</span><span class="p">();</span>
+    <span class="kt">float</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">sinf</span><span class="p">(</span><span class="n">time</span> <span class="o">/</span> <span class="mf">3000.0</span><span class="n">f</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">M_PI</span><span class="p">);</span>
+    <span class="n">servo</span><span class="p">.</span><span class="n">rotAbs</span><span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="mf">90.0</span><span class="n">f</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="motor_servo.cpp"></div>
+
+<p>Before using servo, you should configure it using <a href="api/classh_framework_1_1_i_servo.html#ae119a8d14410a008f11988367e6b253f">calibrate</a> method.
+Different servos has different pulse lengths, that correspond to the actual value. With this function you can calibrate the servo, so the <a href="api/classh_framework_1_1_i_servo.html#a8c908ead5f81b38bd09a37a3a82100ce">rotAbs</a> function acts the same way in each servo.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_motor.html">hMotor API docs</a> &ndash; Provides control of on-board motor driver.<br></li>
+<li><a href="api/classh_framework_1_1_i_servo.html">IServo API docs</a> &ndash; Provides interface to servo.<br></li>
+</ul>
+
+<h1 id="gpio">GPIO</h1>
+<pre class="highlight cpp"><code><span class="n">hExt1</span><span class="p">.</span><span class="n">pin1</span><span class="p">.</span><span class="n">setOut</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">hExt1</span><span class="p">.</span><span class="n">pin1</span><span class="p">.</span><span class="n">toggle</span><span class="p">();</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="gpio.cpp"></div>
+
+<p>Robocore has a lot of GPIO ports (General Purpose Input/Output). These GPIO ports are available via:</p>
+
+<ul>
+<li><a href="https://wiki.robocore.io/hardware:hext">two interfaces called hExts</a>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_ext.html#adbff38e3a7a0b890d531475d87bc313f">hExt1.pin1, hExt2.pin1</a> - interrupt capable</li>
+<li><a href="api/classh_framework_1_1h_ext.html#a33b29a0799c04e64f2ed2e75f6884c0a">hExt1.pin2, hExt2.pin2</a> - interrupt capable</li>
+<li><a href="api/classh_framework_1_1h_ext.html#aa783bc1da554e99715f924964fdd2d93">hExt1.pin3, hExt2.pin3</a></li>
+<li><a href="api/classh_framework_1_1h_ext.html#a84e0a76ce835682810256239ca8cc50f">hExt1.pin4, hExt2.pin4</a></li>
+<li><a href="api/classh_framework_1_1h_ext.html#ac4f3bbb7c6449d32c91afe9f0190dc0e">hExt1.pin5, hExt2.pin5</a></li>
+<li><a href="api/classh_framework_1_1h_ext.html#a295fa590afdd8cdc1de2b5e39c7d9dd9">hExt1.pin6, hExt2.pin6</a></li>
+<li><a href="api/classh_framework_1_1h_ext.html#aa71e7e0afe9a8115cda737a47d1b0e47">hExt1.pin7, hExt2.pin7</a> - interrupt and ADC capable</li>
+</ul></li>
+<li><a href="https://wiki.robocore.io/hardware:hsensor">hSensor ports</a>
+
+<ul>
+<li>hSens1.pin1, hSens2.pin1, hSens3.pin1, hSens4.pin1, hSens5.pin1</li>
+<li>hSens1.pin2, hSens2.pin2, hSens3.pin2, hSens4.pin2, hSens5.pin2</li>
+</ul></li>
+</ul>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_sensor.html">hSensor API docs</a> &ndash; base implementation for on-board <a class="el" href="classh_framework_1_1h_sensor.html" title="base implementation for on-board hSensor port. ">hSensor</a> port.<br></li>
+<li><a href="api/classh_framework_1_1h_ext.html">hExt API docs</a> &ndash; Interface for expansion header connector called <a class="el" href="classh_framework_1_1h_ext.html" title="Interface for expansion header connector called hExt. ">hExt</a>.<br></li>
+<li><a href="api/classh_framework_1_1h_g_p_i_o.html">hGPIO API docs</a> &ndash; Implementation of on-board General Purpose Input-Output pin (GPIO).<br></li>
+</ul>
+
+<h2 id="gpio-settings">GPIO settings</h2>
+<pre class="highlight cpp"><code><span class="c1">// read from pin 1 with pull down resistor
+</span><span class="n">hExt1</span><span class="p">.</span><span class="n">pin1</span><span class="p">.</span><span class="n">setIn_pd</span><span class="p">();</span>
+<span class="n">hExt1</span><span class="p">.</span><span class="n">pin2</span><span class="p">.</span><span class="n">setOut</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// replicate value on pin1 to pin2
+</span>    <span class="n">bool</span> <span class="n">value</span> <span class="o">=</span> <span class="n">hExt1</span><span class="p">.</span><span class="n">pin1</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+    <span class="n">hExt1</span><span class="p">.</span><span class="n">pin2</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="gpio_inout.cpp"></div>
+<pre class="highlight cpp"><code><span class="n">hExt1</span><span class="p">.</span><span class="n">pin1</span><span class="p">.</span><span class="n">setOutOD</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// toggle between high impedance and low state
+</span>    <span class="n">hExt1</span><span class="p">.</span><span class="n">pin1</span><span class="p">.</span><span class="n">toggle</span><span class="p">();</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="gpio_inout.cpp"></div>
+
+<p>GPIO ports can be set to be either input or output ports. There are several modes combining push/pull resistors:</p>
+
+<ul>
+<li><code class="prettyprint">setOut</code> &ndash; push up for 1, pull down for 0</li>
+<li><code class="prettyprint">setOutOD</code> &ndash; output in open-drain mode (low state for 0, undefined/high impedance for 1)</li>
+<li><code class="prettyprint">setOutOD_pu</code> &ndash; output in open-drain mode and with push-up resistor (low state for 0, &ldquo;weak high&rdquo; state for 1)</li>
+<li><code class="prettyprint">setOutOD_pd</code> &ndash; output in open-drain mode and with pull-down resistor (low state for 0, &ldquo;weak low&rdquo; state for 1)</li>
+<li><code class="prettyprint">setIn</code> &ndash; input (1 for high state, 0 for low state)</li>
+<li><code class="prettyprint">setIn_pd</code> &ndash; input with pull down resistor (1 for high state, 0 for low and undefined states)</li>
+<li><code class="prettyprint">setIn_pu</code> &ndash; input with push up resistor (1 for high and undefined states, 0 for low state)</li>
+</ul>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_g_p_i_o.html">hGPIO API docs</a> &ndash; Implementation of on-board General Purpose Input-Output pin (GPIO).<br></li>
+</ul>
+
+<h2 id="analog-input">Analog input</h2>
+<pre class="highlight cpp"><code><span class="c1">// enable ADC on our ports
+</span><span class="n">hSens4</span><span class="p">.</span><span class="n">pin2</span><span class="p">.</span><span class="n">enableADC</span><span class="p">();</span>
+<span class="n">hExt2</span><span class="p">.</span><span class="n">pin7</span><span class="p">.</span><span class="n">enableADC</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// read analog values (voltage)
+</span>    <span class="kt">float</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">hSens4</span><span class="p">.</span><span class="n">pin2</span><span class="p">.</span><span class="n">analogReadVoltage</span><span class="p">();</span>
+    <span class="kt">float</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">hExt2</span><span class="p">.</span><span class="n">pin7</span><span class="p">.</span><span class="n">analogReadVoltage</span><span class="p">();</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%f %f</span><span class="se">\r\n</span><span class="s">"</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">);</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="adc.cpp"></div>
+
+<p>Some ports on RoboCORE have ADC capability (i.e. they can read analog voltages) &ndash; hSens4.pin2, hExt1.pin7 and hExt2.pin7.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_g_p_i_o__adc.html">hGPIO_adc API docs</a> &ndash; Implementation of on-board General Purpose Input-Output pin (GPIO) with ADC capability.<br></li>
+</ul>
+
+<h1 id="low-level-buses">Low-level buses</h1>
+
+<p>RoboCORE supports I2C (Inter-Integrated Circuit, also called Two Wire Interface/TWI), SPI (Serial Peripheral Interface) and CAN (Controller Area Network).</p>
+
+<h2 id="i2c">I2C</h2>
+
+<p>The I2C (Inter-Integrated Circuit) bus, pronounced I-squared-C is a multi-master bus used for connecting sensors and other devices to RoboCORE.</p>
+
+<ul>
+<li><code class="prettyprint">hExtI2C</code> &ndash; an interface shared between both hExts</li>
+<li><code class="prettyprint">hSens1.i2c</code> and <code class="prettyprint">hSens2.i2c</code></li>
+<li>software I2C implementation on hSensors 3 and 4</li>
+</ul>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_i2_c.html">hI2C API docs</a> &ndash; Implementation of on-board I2C interface.<br></li>
+</ul>
+
+<h2 id="spi">SPI</h2>
+
+<p>The SPI (Serial Peripheral Interface) bus is a synchronous serial communication bus. It&rsquo;s used for connecting sensors, SD card and other device to RoboCORE. RoboCORE has two SPI interfaces:</p>
+
+<ul>
+<li>internal SD card SPI interface</li>
+<li><code class="prettyprint">hExtSPI</code> &ndash; a SPI interface shared between both hExts</li>
+</ul>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_s_p_i.html">hSPI API docs</a> &ndash; </li>
+</ul>
+
+<h2 id="can">CAN</h2>
+<pre class="highlight cpp"><code><span class="kt">void</span> <span class="nf">hMain</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">CAN</span><span class="p">.</span><span class="n">init</span><span class="p">();</span>
+
+    <span class="n">CAN_frameTx</span> <span class="n">tx</span><span class="p">;</span>
+    <span class="n">tx</span><span class="p">.</span><span class="n">StdId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">tx</span><span class="p">.</span><span class="n">ExtId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">tx</span><span class="p">.</span><span class="n">IDE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">tx</span><span class="p">.</span><span class="n">RTR</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">tx</span><span class="p">.</span><span class="n">DLC</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">tx</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xab</span><span class="p">;</span>
+    <span class="n">tx</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">getRefTime</span><span class="p">();</span>
+    <span class="n">CAN</span><span class="p">.</span><span class="n">sendFrame</span><span class="p">(</span><span class="n">tx</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="can_send.cpp"></div>
+<pre class="highlight cpp"><code><span class="kt">void</span> <span class="nf">hMain</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">CAN</span><span class="p">.</span><span class="n">init</span><span class="p">();</span>
+
+    <span class="n">CAN_frameRx</span> <span class="n">frame</span><span class="p">;</span>
+    <span class="n">bool</span> <span class="n">frameReceived</span> <span class="o">=</span> <span class="n">CAN</span><span class="p">.</span><span class="n">waitFrame</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">frameReceived</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// access the frame in `frame` variable
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="can_recv.cpp"></div>
+
+<p>The CAN bus (Controller Area Network) is a multi-master bus designed for communication between multiple microcontrollers. It has somewhat similar architecture to the original 10 Mbps Ethernet.</p>
+
+<p>The CAN frame (CAN_frameRx, CAN_frameTx) contains the following fields:</p>
+
+<ul>
+<li><code class="prettyprint">StdId</code> - first 11 bits of an address</li>
+<li><code class="prettyprint">ExtId</code> - second 18 bits of an address</li>
+<li><code class="prettyprint">RTR</code> - Remote transmission request - 0 for data frames, 1 for remote request frames</li>
+<li><code class="prettyprint">IDE</code> - Identifier extension bit</li>
+<li><code class="prettyprint">DLC</code> - Data length code - data length (0-8)</li>
+<li><code class="prettyprint">data</code> - packet payload</li>
+</ul>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_c_a_n.html">hCAN API docs</a> &ndash; Provides CAN interface.<br></li>
+</ul>
+
+<h1 id="hsensors">hSensors</h1>
+
+<p>RoboCORE is equipped with 5 <a href="https://wiki.robocore.io/hardware:hsensor">hSensor</a> ports. They meant to be used with many different sensors, such as spatial orientation sensors (MPU9150-module for RoboCORE), light sensors, sound sensors, limit switches and many others.</p>
+
+<p>The hSensor class provides the low level functions (GPIO, serial port, ADC and I2C). You can also pass the hSensor instance to a library providing support for a specific sensor (for example, to one of the modules from <a href="#sensors-support">sensors support library</a>).</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_sensor.html">hSensor API docs</a> &ndash; base implementation for on-board <a class="el" href="classh_framework_1_1h_sensor.html" title="base implementation for on-board hSensor port. ">hSensor</a> port.<br></li>
+</ul>
+
+<h1 id="tasks">Tasks</h1>
+<pre class="highlight cpp"><code><span class="c1">// This program will repeatedly print fizz buzz
+</span><span class="cp">#include &lt;hFramework.h&gt;
+</span>
+<span class="kt">void</span> <span class="nf">buzzer</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"buzz</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">hMain</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">taskCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buzzer</span><span class="p">);</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"fizz</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="sys_task.cpp"></div>
+
+<p>hFramework uses FreeRTOS as a task scheduler and thus has first class support for multithreading/multitasking.</p>
+
+<p>You can use <a href="api/classh_framework_1_1h_system.html#aa05a7bf9c61e7ffd0a9d46859072be96">sys.taskCreate</a> to create a new task. It will immediately begin executing.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_system.html">hSystem API docs</a> &ndash; RTOS (Real-Time operating system) interface.<br></li>
+</ul>
+
+<h2 id="mutal-exclusion">Mutal exclusion</h2>
+<pre class="highlight cpp"><code><span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">hMutex</span> <span class="n">counter_mutex</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">add_1</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Modify counter in mutex to ensure that the modification is not lost
+</span>    <span class="n">counter_mutex</span><span class="p">.</span><span class="n">take</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">new_value</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="n">new_value</span><span class="p">;</span>
+    <span class="n">counter_mutex</span><span class="p">.</span><span class="n">give</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">adder</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">add_1</span><span class="p">();</span>
+        <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">hMain</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">taskCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">adder</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">add_1</span><span class="p">();</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"fizz</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="sys_mutex.cpp"></div>
+
+<p>When writing multithread programs, the understanding <a href="https://en.wikipedia.org/wiki/Mutual_exclusion">mutual exclusion</a> is important. When two tasks perform non-atomic modification to the global state they may interfere with each other in an unexpected ways.</p>
+
+<p>hFramework provides mutexes &ndash; only one task can hold a mutex at a single time &ndash; when other process tries to take it, it will be blocked until the first one releases it.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_mutex.html">hMutex API docs</a> &ndash; Mutex class.<br></li>
+<li><a href="api/classh_framework_1_1h_mutex_guard.html">hMutexGuard API docs</a> &ndash; Automatically takes a mutex and releases it when the guard goes out of scope.<br></li>
+</ul>
+
+<h2 id="queues">Queues</h2>
+<pre class="highlight cpp"><code><span class="c1">// Create queue with capacity for 60 elements
+</span><span class="n">hQueue</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">queue</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">consumer</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">number</span><span class="p">;</span>
+        <span class="c1">// Pop element from the from of the queue. Will block if the queue is empty.
+</span>        <span class="n">queue</span><span class="p">.</span><span class="n">receive</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"consumed %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">number</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">hMain</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">taskCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">consumer</span><span class="p">);</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Push element to the queue. Will block if the queue is full.
+</span>        <span class="n">queue</span><span class="p">.</span><span class="n">sendToBack</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="n">i</span> <span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="sys_queue.cpp"></div>
+
+<p>hQueue is a thread safe multi-consumer multi-producer queue implementation.</p>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_queue.html#a718aa15fb62846d6e89036133eb01d5b">receive</a> pops an element from the from of the queue. Blocks if queue is empty.</li>
+<li><a href="api/classh_framework_1_1h_queue.html#a494359a181d0ef460ad5d8c60b67d736">sendToBack</a> pushes element to the back of the queue. Blocks if queue is full. Together with <code class="prettyprint">receive</code> they form a FIFO queue.</li>
+<li><a href="api/classh_framework_1_1h_queue.html#a7ada08e2222992baa5943eedbf30508b">sendToFront</a> pushes element to the front of the queue. Blocks if queue is full. Together with <code class="prettyprint">receive</code> they form a LIFO queue (a stack).</li>
+</ul>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_queue.html">hQueue API docs</a> &ndash; Provides type oriented FIFO and LIFO queues.<br></li>
+</ul>
+
+<h1 id="persistent-storage">Persistent storage</h1>
+<pre class="highlight cpp"><code><span class="c1">// store a number at location 0
+</span><span class="n">sys</span><span class="p">.</span><span class="n">getStorage</span><span class="p">().</span><span class="n">store</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+<span class="c1">// load a number from location 0
+</span><span class="kt">int</span> <span class="n">answer</span><span class="p">;</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">getStorage</span><span class="p">().</span><span class="n">load</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">answer</span><span class="p">);</span>
+
+<span class="c1">// store a string at location 4
+</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"foo"</span><span class="p">;</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">getStorage</span><span class="p">().</span><span class="n">store</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">str</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="c1">// load a string from location 4
+</span><span class="kt">char</span> <span class="n">newstr</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">getStorage</span><span class="p">().</span><span class="n">load</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">newstr</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="storage.cpp"></div>
+
+<p>Sometimes you need to store some information is a persistent storage that should be available between RoboCORE resets. hStorage provides such space. There are 8 KiB available - the last 1 KiB is reserved for hFramework internal configuration.</p>
+
+<p>All data is stored in virtual 16-bit address space. Addresses from 0 to 7168 bytes are available for user, others are reserved for internal hFramework use.</p>
+
+<p>Persistent storage is implemented using EEPROM emulation, which works on two dedicated flash pages.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_storage.html">hStorage API docs</a> &ndash; Provides local persistent storage.<br></li>
+</ul>
+
+<h1 id="the-cloud-basics">The Cloud Basics</h1>
+
+<p>RoboCORE can be used to created robots that integrate deeply with the cloud.</p>
+
+<h2 id="connecting-to-the-robocore-platform">Connecting to the Robocore Platform</h2>
+<pre class="highlight cpp"><code><span class="c1">// Connect via Android device (connected to USB)
+</span><span class="n">platform</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Usb</span><span class="p">);</span>
+<span class="c1">// Connect via Edison
+</span><span class="n">platform</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Edison</span><span class="p">);</span>
+</code></pre>
+
+<p>Connecting to the Robocore Platform is very simple &ndash; you just need to specify whether you want to use Android phone or built-in <a href="https://wiki.robocore.io/edison:start">Edison</a>.</p>
+
+<!-- --example c++ cloud_basic.py -->
+
+<p>Remember to include <code class="prettyprint">hCloudClient.h</code> header in your file.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1h_cloud_client.html">hCloudClient API docs</a> &ndash; Provides access to the RoboCORE platform.<br></li>
+</ul>
+
+<h2 id="simple-user-interface">Simple user interface</h2>
+
+<p>The simplest way to access your construction from the cloud is to directly define user inteface using hCloudClient. This user interface will appear when you click the robot name on the Robocore Platform main page.</p>
+<pre class="highlight cpp"><code><span class="kt">void</span> <span class="nf">configHandler</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">auto</span> <span class="n">label</span> <span class="o">=</span> <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">label</span><span class="p">(</span><span class="s">"hello-label"</span><span class="p">);</span>
+    <span class="n">label</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">);</span>
+    <span class="n">label</span><span class="p">.</span><span class="n">setLocation</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">hMain</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Usb</span><span class="p">);</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">configHandler</span> <span class="o">=</span> <span class="n">configHandler</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+</code></pre>
+
+<div class="edit-this" data-example-name="cloud_basic_ui.cpp"></div>
+
+<p>In order to create user interface you need to create <code class="prettyprint">configHandler</code> function. This function will called when the platform needs to show UI to the user.</p>
+
+<p>Here, we retrieve a new label with ID <code class="prettyprint">hello-label</code> (via <code class="prettyprint">platform.ui.label()</code> function). Then we set label&rsquo;s text to <code class="prettyprint">Hello world</code>. As we haven&rsquo;t set any custom theme, the label will simply appear on the screen.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1_platform_ui.html">PlatformUi API docs</a> &ndash; Controls the user interface on the RoboCORE platform.<br></li>
+</ul>
+
+<h2 id="using-templates">Using templates</h2>
+
+<p>While you can create complex interfaces just using widgets and <code class="prettyprint">setPosition</code>, sometimes
+you want more fine grained control. Then you can load HTML template and control it from
+your program running on the robot.</p>
+<pre class="highlight cpp"><code><span class="kt">void</span> <span class="nf">configHandler</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">loadHtml</span><span class="p">({</span><span class="n">Resource</span><span class="o">::</span><span class="n">STRING</span><span class="p">,</span>
+        <span class="s">"&lt;!doctype html&gt;"</span>
+        <span class="s">"&lt;html&gt;"</span>
+            <span class="s">"&lt;head&gt;"</span>
+                <span class="s">"&lt;link rel=</span><span class="se">\"</span><span class="s">stylesheet</span><span class="se">\"</span><span class="s"> type=</span><span class="se">\"</span><span class="s">text/css</span><span class="se">\"</span><span class="s"> href=</span><span class="se">\"</span><span class="s">/static/theme-dark.less.css</span><span class="se">\"</span><span class="s">&gt;"</span>
+                <span class="s">"&lt;script src=</span><span class="se">\"</span><span class="s">/static/robocore.js</span><span class="se">\"</span><span class="s">&gt;&lt;/script&gt;"</span>
+            <span class="s">"&lt;/head&gt;"</span>
+            <span class="s">"&lt;body&gt;"</span>
+                <span class="s">"&lt;h1&gt;Welcome page!&lt;/h1&gt;"</span>
+                <span class="s">"&lt;label id='hello-world'&gt;this will be replaced&lt;/label&gt;"</span>
+            <span class="s">"&lt;/body&gt;"</span>
+        <span class="s">"&lt;/html&gt;"</span><span class="p">});</span>
+
+    <span class="k">auto</span> <span class="n">label</span> <span class="o">=</span> <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">label</span><span class="p">(</span><span class="s">"hello-label"</span><span class="p">);</span>
+    <span class="n">label</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">hMain</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Usb</span><span class="p">);</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">configHandler</span> <span class="o">=</span> <span class="n">configHandler</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="cloud_template_ui.cpp"></div>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1_platform_ui.html">PlatformUi API docs</a> &ndash; Controls the user interface on the RoboCORE platform.<br></li>
+</ul>
+
+<h2 id="loading-resources-from-web-ide">Loading resources from Web IDE</h2>
+<pre class="highlight cpp"><code><span class="c1">// See also example project DocsCloudTemplateWebIDE
+</span>
+<span class="kt">void</span> <span class="nf">configHandler</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">loadHtml</span><span class="p">({</span><span class="n">Resource</span><span class="o">::</span><span class="n">WEBIDE</span><span class="p">,</span> <span class="s">"template.html"</span><span class="p">});</span>
+
+    <span class="k">auto</span> <span class="n">label</span> <span class="o">=</span> <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">label</span><span class="p">(</span><span class="s">"hello-label"</span><span class="p">);</span>
+    <span class="n">label</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">hMain</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Usb</span><span class="p">);</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">setProjectId</span><span class="p">(</span><span class="s">"__PROJECT_ID_FROM_SETTINGS__"</span><span class="p">);</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">configHandler</span> <span class="o">=</span> <span class="n">configHandler</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/* template.html:
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/static/theme-dark.less.css"&gt;
+    &lt;script src="/static/robocore.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome page!&lt;/h1&gt;
+    &lt;img src="logo.png"&gt;
+    &lt;label id='hello-world'&gt;this will be replaced&lt;/label&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+*/</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="cloud_template_webide.cpp"></div>
+
+<p>Often, you will want to load more complex resources such as images or complicated templates.
+The simplest way to do this is to upload them to Web IDE. You can do that even when you are not using
+Web IDE for developing your software.</p>
+
+<ol>
+<li>You will need a Web IDE project. If you aren&rsquo;t using Web IDE now, <a href="https://platform.robocore.io/ide/">create one now</a>.</li>
+<li>Make sure that you call <a href="api/classh_framework_1_1_platform_ui.html#a76d0e512888a1f39b21def2d3f73ac98">platform.setProjectId</a>) in the beginning of <code class="prettyprint">hMain()</code>. If you don&rsquo;t have this, call <code class="prettyprint">platform.setProjectId</code> with &ldquo;Project ID&rdquo; from Project Settings.</li>
+<li>Upload or create file in the Web IDE.</li>
+<li>Use <code class="prettyprint">{Resource::WEBIDE, &quot;file_name&quot;}</code> in methods like <a href="api/classh_framework_1_1_platform_ui.html#a76d0e512888a1f39b21def2d3f73ac98">loadHtml</a>. You can also use uploaded image and other files in HTML tags in templates (see example project).</li>
+</ol>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1_platform_ui.html">PlatformUi API docs</a> &ndash; Controls the user interface on the RoboCORE platform.<br></li>
+</ul>
+
+<h2 id="interacting-with-user-via-the-robocore-platform">Interacting with user via the Robocore Platform</h2>
+<pre class="highlight cpp"><code><span class="kt">void</span> <span class="nf">configHandler</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">button</span><span class="p">(</span><span class="s">"foo"</span><span class="p">).</span><span class="n">setText</span><span class="p">(</span><span class="s">"Foo!"</span><span class="p">);</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">button</span><span class="p">(</span><span class="s">"nothing"</span><span class="p">).</span><span class="n">setText</span><span class="p">(</span><span class="s">"Do nothing"</span><span class="p">);</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">label</span><span class="p">(</span><span class="s">"status"</span><span class="p">).</span><span class="n">setText</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">slider</span><span class="p">(</span><span class="s">"slider1"</span><span class="p">).</span><span class="n">setValue</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">slider</span><span class="p">(</span><span class="s">"slider2"</span><span class="p">).</span><span class="n">setValue</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">input</span><span class="p">(</span><span class="s">"input1"</span><span class="p">).</span><span class="n">setText</span><span class="p">(</span><span class="s">"change me"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">onKeyEvent</span><span class="p">(</span><span class="n">KeyEventType</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">code</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="n">KeyEventType</span><span class="o">::</span><span class="n">Pressed</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">label</span><span class="p">(</span><span class="s">"status"</span><span class="p">).</span><span class="n">setText</span><span class="p">(</span><span class="s">"key pressed"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">onButtonEvent</span><span class="p">(</span><span class="n">hId</span> <span class="n">id</span><span class="p">,</span> <span class="n">ButtonEventType</span> <span class="n">type</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">id</span> <span class="o">==</span> <span class="s">"foo"</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Foo! clicked
+</span>        <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="n">ButtonEventType</span><span class="o">::</span><span class="n">Pressed</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">label</span><span class="p">(</span><span class="s">"status"</span><span class="p">).</span><span class="n">setText</span><span class="p">(</span><span class="s">"pressed"</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">label</span><span class="p">(</span><span class="s">"status"</span><span class="p">).</span><span class="n">setText</span><span class="p">(</span><span class="s">"released"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">onValueChangeEvent</span><span class="p">(</span><span class="n">hId</span> <span class="n">id</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">id</span> <span class="o">==</span> <span class="s">"slider1"</span> <span class="o">||</span> <span class="n">id</span> <span class="o">==</span> <span class="s">"slider2"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+        <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">label</span><span class="p">(</span><span class="s">"status"</span><span class="p">).</span><span class="n">setText</span><span class="p">(</span><span class="s">"slider %s changed to %d"</span><span class="p">,</span> <span class="n">id</span><span class="p">.</span><span class="n">str</span><span class="p">(),</span> <span class="n">val</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">id</span> <span class="o">==</span> <span class="s">"input1"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">label</span><span class="p">(</span><span class="s">"status"</span><span class="p">).</span><span class="n">setText</span><span class="p">(</span><span class="s">"new text: %s"</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">hMain</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Usb</span><span class="p">);</span>
+
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">configHandler</span> <span class="o">=</span> <span class="n">configHandler</span><span class="p">;</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">onKeyEvent</span> <span class="o">=</span> <span class="n">onKeyEvent</span><span class="p">;</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">onButtonEvent</span> <span class="o">=</span> <span class="n">onButtonEvent</span><span class="p">;</span>
+    <span class="n">platform</span><span class="p">.</span><span class="n">ui</span><span class="p">.</span><span class="n">onValueChangeEvent</span> <span class="o">=</span> <span class="n">onValueChangeEvent</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="cloud_interacting.cpp"></div>
+
+<p>Robocore Platform UI provides several events and useful widgets for receiving input from user.</p>
+
+<p>First, in <code class="prettyprint">configHandler</code> we setup two buttons and a label.</p>
+
+<p>In <code class="prettyprint">onKeyEvent</code>, when user presses key, we change the text of a label.</p>
+
+<p>In <code class="prettyprint">onButtonEvent</code>, we check which button was clicked and update the label accordingly. Observe that clicking &lsquo;Do nothing&rsquo; button does nothing.</p>
+
+<p>In <code class="prettyprint">onValueChangeEvent</code>, we process changes in input components.</p>
+
+<p>In <code class="prettyprint">hMain</code>, apart from setting up connection, we also tell hFramework to call our event handlers.</p>
+
+<h1 id="hpython">hPython</h1>
+<pre class="highlight cpp"><code><span class="n">Python</span><span class="p">.</span><span class="n">init</span><span class="p">();</span>
+
+<span class="n">Python</span><span class="p">.</span><span class="n">eval</span><span class="p">(</span><span class="s">"print('aaaa', 2+4*9)"</span><span class="p">);</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="python.cpp"></div> 
+
+<p>hPython is a Python interpreter for RoboCORE boards. It is based on the MicroPython project.</p>
+
+<p>For now, Python code cannot be executed from multiple threads. To enable safe execution, global interpreter lock (GIL) is acquired when Python is executed</p>
+
+<p>In future, hPython will drop GIL sometimes, so multiple Python snippets can execute concurrently.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/class___python.html">_Python API docs</a> &ndash; Runs Python code.<br></li>
+</ul>
+
+<h1 id="external-modules">External modules</h1>
+
+<p>Builtin library called RoboCORE modules provides support for external modules such as MPU9250 orientation sensor, RoboCORE ServoDriver, HD44700 Display and Distance sensor.</p>
+
+<h2 id="distance-sensor">Distance sensor</h2>
+<pre class="highlight cpp"><code><span class="n">DistanceSensor</span> <span class="n">sens</span><span class="p">(</span><span class="n">hSens1</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(;;)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">sens</span><span class="p">.</span><span class="n">getDistance</span><span class="p">();</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\r\n</span><span class="s">"</span><span class="p">,</span> <span class="n">dist</span><span class="p">);</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="DistanceSensor:basic.cpp"></div>
+
+<p>Distance sensor is a popular HC-SR04 ultrasonic sensor. You can simply read distance to a obstacle by using <a href="api/classh_modules_1_1_distance_sensor.html#a6d6ad765c6f247769903236123e16ce1">DistanceSensor::getDistance</a> method.</p>
+
+<h2 id="servodriver-module">ServoDriver module</h2>
+<pre class="highlight cpp"><code><span class="n">sys</span><span class="p">.</span><span class="n">setLogDev</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Serial</span><span class="p">);</span>
+
+<span class="n">ServoDriver</span> <span class="n">servoDriver</span><span class="p">(</span><span class="n">hExt1</span><span class="p">);</span>
+
+<span class="n">servoDriver</span><span class="p">.</span><span class="n">enablePower</span><span class="p">();</span>
+
+<span class="k">for</span> <span class="p">(;;)</span>
+<span class="p">{</span>
+    <span class="n">servoDriver</span><span class="p">.</span><span class="n">s1</span><span class="p">.</span><span class="n">setWidth</span><span class="p">(</span><span class="mi">1500</span><span class="p">);</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="n">servoDriver</span><span class="p">.</span><span class="n">s1</span><span class="p">.</span><span class="n">setWidth</span><span class="p">(</span><span class="mi">1100</span><span class="p">);</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="ServoDriver:basic.cpp"></div>
+
+<p><a href="https://wiki.robocore.io/hardware:servodriver">RoboCORE ServoDriver</a> is a controller that allows you to connect up to 12 servo motors and control them in real time.
+Remember to enable power at the beggining using <a href="api/classh_modules_1_1_servo_driver.html#a8d126e5c9b1764237c4db6060e129508">ServoDriver::enablePower</a> method.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_modules_1_1_servo_driver.html">ServoDriver API docs</a> &ndash; Provides interface to Servo Driver module.<br></li>
+<li><a href="api/classh_framework_1_1_i_servo.html">IServo API docs</a> &ndash; Provides interface to servo.<br></li>
+</ul>
+
+<h2 id="mpu9250-module">MPU9250 module</h2>
+<pre class="highlight cpp"><code><span class="n">sys</span><span class="p">.</span><span class="n">setLogDev</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Serial</span><span class="p">);</span>
+
+<span class="n">MPU9250</span> <span class="n">mpu</span><span class="p">(</span><span class="n">hSens1</span><span class="p">);</span>
+
+<span class="n">mpu</span><span class="p">.</span><span class="n">init</span><span class="p">();</span>
+
+<span class="k">for</span> <span class="p">(;;)</span>
+<span class="p">{</span>
+    <span class="n">mpu</span><span class="p">.</span><span class="n">waitForData</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">mpu</span><span class="p">.</span><span class="n">process</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">MPU9250</span><span class="o">::</span><span class="n">Reading</span> <span class="n">reading</span> <span class="o">=</span> <span class="n">mpu</span><span class="p">.</span><span class="n">getReading</span><span class="p">();</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"ax %6d ay %6d az %6d </span><span class="se">\r\n</span><span class="s">"</span><span class="p">,</span> <span class="n">reading</span><span class="p">.</span><span class="n">ax</span><span class="p">,</span> <span class="n">reading</span><span class="p">.</span><span class="n">ay</span><span class="p">,</span> <span class="n">reading</span><span class="p">.</span><span class="n">az</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"gx %6d gy %6d gz %6d </span><span class="se">\r\n</span><span class="s">"</span><span class="p">,</span> <span class="n">reading</span><span class="p">.</span><span class="n">gx</span><span class="p">,</span> <span class="n">reading</span><span class="p">.</span><span class="n">gy</span><span class="p">,</span> <span class="n">reading</span><span class="p">.</span><span class="n">gz</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"mx %6d my %6d mz %6d </span><span class="se">\r\n</span><span class="s">"</span><span class="p">,</span> <span class="n">reading</span><span class="p">.</span><span class="n">mx</span><span class="p">,</span> <span class="n">reading</span><span class="p">.</span><span class="n">my</span><span class="p">,</span> <span class="n">reading</span><span class="p">.</span><span class="n">mz</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<div class="edit-this" data-example-name="MPU9250:basic.cpp"></div>
+
+<p><a href="https://wiki.robocore.io/hardware:modules#mpu-9250_orientation_sensor">MPU9250</a> is a device that returns orientation in the world.</p>
+
+<h3 id="see-also">See also</h3>
+
+<ul>
+<li><a href="api/classh_framework_1_1_m_p_u9250.html">MPU9250 API docs</a> &ndash; </li>
+</ul>
+
+<h1 id="lego-sensors-support">LEGO sensors support</h1>
+
+<p>hFramework ships with external library called <a href="https://github.com/husarion/robocore-sensors">RoboCORE sensors</a>. The library provides support for several popular LEGO sensors.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="c++">c++</a>
+          </div>
+      </div>
+    </div>
+    <script src="https://static.robocore.io/code/robocore-header.js.php?page=api&fixed=1" type="text/javascript"></script>
+    <script src="https://static.robocore.io/code/edit-this.js" type="text/javascript"></script>
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-51095182-2', 'auto');
+		ga('send', 'pageview');
+		</script>
+  </body>
+</html>

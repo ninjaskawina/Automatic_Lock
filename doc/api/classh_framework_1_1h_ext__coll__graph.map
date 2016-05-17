@@ -1,0 +1,18 @@
+<map id="hFramework::hExt" name="hFramework::hExt">
+<area shape="rect" id="node2" href="$classh_framework_1_1h_g_p_i_o.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO). " alt="" coords="333,280,480,307"/>
+<area shape="rect" id="node4" href="$classh_framework_1_1h_i2_c.html" title="Implementation of on&#45;board I2C interface. " alt="" coords="615,23,750,49"/>
+<area shape="rect" id="node6" href="$classh_framework_1_1h_serial.html" title="Serial port (UART) interface. " alt="" coords="974,149,1125,176"/>
+<area shape="rect" id="node11" href="$classh_framework_1_1h_g_p_i_o__int.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO) with interrupt capability..." alt="" coords="598,361,767,388"/>
+<area shape="rect" id="node13" href="$classh_framework_1_1h_s_p_i.html" title="hFramework::hSPI" alt="" coords="795,280,930,307"/>
+<area shape="rect" id="node15" href="$classh_framework_1_1h_g_p_i_o__adc.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO) with ADC capability. " alt="" coords="595,483,771,509"/>
+<area shape="rect" id="node3" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o.html" title="Interface for General Purpose Input&#45;Output pin (GPIO). " alt="" coords="15,383,185,425"/>
+<area shape="rect" id="node12" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__int.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with interrupt capability. " alt="" coords="321,383,492,425"/>
+<area shape="rect" id="node16" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__adc.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with ADC capability. " alt="" coords="321,450,492,491"/>
+<area shape="rect" id="node5" href="$classh_framework_1_1interfaces_1_1_i_i2_c.html" title="Interface for I2C. " alt="" coords="321,6,492,47"/>
+<area shape="rect" id="node7" href="$classh_framework_1_1interfaces_1_1_i_serial.html" title="Interface to the serial port. This is a restricted version of hSerial. " alt="" coords="597,74,768,115"/>
+<area shape="rect" id="node8" href="$classh_framework_1_1h_printf_dev.html" title="Provides printf and vprintf methods as extension to hStreamDev. " alt="" coords="320,72,493,99"/>
+<area shape="rect" id="node9" href="$classh_framework_1_1h_stream_dev.html" title="Stream device interface. " alt="" coords="6,97,194,124"/>
+<area shape="rect" id="node10" href="$classh_framework_1_1h_mutex.html" title="Mutex class. " alt="" coords="23,47,177,73"/>
+<area shape="rect" id="node14" href="$classh_framework_1_1h_g_p_i_o__super.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO) with interrupt and ADC capability..." alt="" coords="955,421,1144,448"/>
+<area shape="rect" id="node17" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__super.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with interrupt and ADC capability. " alt="" coords="597,417,768,458"/>
+</map>

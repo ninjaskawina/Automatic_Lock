@@ -1,0 +1,10 @@
+<map id="hFramework::hCloudClient" name="hFramework::hCloudClient">
+<area shape="rect" id="node2" href="$classh_framework_1_1h_printf_dev.html" title="Provides printf and vprintf methods as extension to hStreamDev. " alt="" coords="45,216,219,243"/>
+<area shape="rect" id="node5" href="$classh_framework_1_1h_local_serial.html" title="hFramework::hLocalSerial" alt="" coords="159,307,343,333"/>
+<area shape="rect" id="node3" href="$classh_framework_1_1h_stream_dev.html" title="Stream device interface. " alt="" coords="5,96,192,123"/>
+<area shape="rect" id="node4" href="$classh_framework_1_1h_mutex.html" title="Mutex class. " alt="" coords="217,96,371,123"/>
+<area shape="rect" id="node6" href="$classh_framework_1_1_platform_ui.html" title="Controls the user interface on the RoboCORE platform. " alt="" coords="367,307,541,333"/>
+<area shape="rect" id="node7" href="$structh_framework_1_1_ui_video.html" title="hFramework::UiVideo" alt="" coords="490,216,645,243"/>
+<area shape="rect" id="node8" href="$structh_framework_1_1___ui_widget.html" title="hFramework::_UiWidget" alt="" coords="487,96,657,123"/>
+<area shape="rect" id="node9" href="$structh_framework_1_1h_id.html" title="hFramework::hId" alt="" coords="414,5,540,32"/>
+</map>

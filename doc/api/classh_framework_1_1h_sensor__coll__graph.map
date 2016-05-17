@@ -1,0 +1,11 @@
+<map id="hFramework::hSensor" name="hFramework::hSensor">
+<area shape="rect" id="node2" href="$classh_framework_1_1interfaces_1_1_i_sensor.html" title="Interface to hSensor port. " alt="" coords="772,5,943,46"/>
+<area shape="rect" id="node3" href="$classh_framework_1_1h_g_p_i_o.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO). " alt="" coords="239,109,385,136"/>
+<area shape="rect" id="node6" href="$classh_framework_1_1h_g_p_i_o__adc.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO) with ADC capability. " alt="" coords="448,172,624,199"/>
+<area shape="rect" id="node8" href="$classh_framework_1_1h_g_p_i_o__int.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO) with interrupt capability..." alt="" coords="451,121,621,148"/>
+<area shape="rect" id="node4" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o.html" title="Interface for General Purpose Input&#45;Output pin (GPIO). " alt="" coords="5,165,176,206"/>
+<area shape="rect" id="node7" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__adc.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with ADC capability. " alt="" coords="227,230,397,271"/>
+<area shape="rect" id="node9" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__int.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with interrupt capability. " alt="" coords="227,165,397,206"/>
+<area shape="rect" id="node5" href="$classh_framework_1_1h_g_p_i_o__super.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO) with interrupt and ADC capability..." alt="" coords="763,147,952,173"/>
+<area shape="rect" id="node10" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__super.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with interrupt and ADC capability. " alt="" coords="451,223,621,265"/>
+</map>

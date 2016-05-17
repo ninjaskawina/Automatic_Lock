@@ -1,0 +1,33 @@
+<map id="/home/buildbot/slave/dist&#45;current/robocore&#45;sensors/include/Hitechnic_ColorV2.h" name="/home/buildbot/slave/dist&#45;current/robocore&#45;sensors/include/Hitechnic_ColorV2.h">
+<area shape="rect" id="node2" href="$h_framework_8h_source.html" title="hFramework.h" alt="" coords="1098,125,1208,152"/>
+<area shape="rect" id="node3" href="$h_system_8h_source.html" title="hSystem.h" alt="" coords="483,424,573,451"/>
+<area shape="rect" id="node6" href="$h_types_8h_source.html" title="hTypes.h" alt="" coords="1128,648,1204,675"/>
+<area shape="rect" id="node9" href="$h_storage_8h_source.html" title="hStorage.h" alt="" coords="585,499,679,525"/>
+<area shape="rect" id="node10" href="$h_mutex_8h_source.html" title="hMutex.h" alt="" coords="619,573,700,600"/>
+<area shape="rect" id="node11" href="$h_printf_dev_8h_source.html" title="hPrintfDev.h" alt="" coords="252,499,351,525"/>
+<area shape="rect" id="node12" href="$h_stream_dev_8h_source.html" title="hStreamDev.h" alt="" coords="151,573,265,600"/>
+<area shape="rect" id="node13" href="$h_motor_8h_source.html" title="hMotor.h" alt="" coords="1314,200,1392,227"/>
+<area shape="rect" id="node14" href="$h_servo_8h_source.html" title="hServo.h" alt="" coords="1159,275,1237,301"/>
+<area shape="rect" id="node15" href="$h_ext_8h_source.html" title="hExt.h" alt="" coords="1245,349,1307,376"/>
+<area shape="rect" id="node18" href="$h_serial_8h_source.html" title="hSerial.h" alt="" coords="699,424,777,451"/>
+<area shape="rect" id="node22" href="$h_c_a_n_8h_source.html" title="hCAN.h" alt="" coords="1617,349,1687,376"/>
+<area shape="rect" id="node23" href="$h_sensor_8h_source.html" title="hSensor.h" alt="" coords="1134,349,1220,376"/>
+<area shape="rect" id="node24" href="$h_s_d_8h_source.html" title="hSD.h" alt="" coords="344,424,405,451"/>
+<area shape="rect" id="node25" href="$h_l_e_d_8h_source.html" title="hLED.h" alt="" coords="853,424,920,451"/>
+<area shape="rect" id="node26" href="$h_u_s_b_8h_source.html" title="hUSB.h" alt="" coords="1795,200,1865,227"/>
+<area shape="rect" id="node27" href="$h_queue_8h_source.html" title="hQueue.h" alt="" coords="974,349,1057,376"/>
+<area shape="rect" id="node29" href="$h_event_bits_8h_source.html" title="hEventBits.h" alt="" coords="1674,573,1776,600"/>
+<area shape="rect" id="node30" href="$h_button_8h_source.html" title="hButton.h" alt="" coords="944,424,1029,451"/>
+<area shape="rect" id="node31" href="$h_utils_8h_source.html" title="hUtils.h" alt="" coords="5,573,75,600"/>
+<area shape="rect" id="node33" href="$h_elapsed_timer_8h_source.html" title="hElapsedTimer.h" alt="" coords="1890,200,2016,227"/>
+<area shape="rect" id="node34" href="$h_printf_8h_source.html" title="hPrintf.h" alt="" coords="424,275,497,301"/>
+<area shape="rect" id="node35" href="$h_packet_dev_8h_source.html" title="hPacketDev.h" alt="" coords="2041,200,2148,227"/>
+<area shape="rect" id="node36" href="$h_p_i_d_regulator_8h_source.html" title="hPIDRegulator.h" alt="" coords="1417,200,1540,227"/>
+<area shape="rect" id="node39" href="$h_math_8h_source.html" title="hMath.h" alt="" coords="2173,200,2247,227"/>
+<area shape="rect" id="node21" href="$h_regulator_8h_source.html" title="hRegulator.h" alt="" coords="1427,275,1528,301"/>
+<area shape="rect" id="node16" href="$h_g_p_i_o_8h_source.html" title="hGPIO.h" alt="" coords="1080,499,1152,525"/>
+<area shape="rect" id="node19" href="$h_i2_c_8h_source.html" title="hI2C.h" alt="" coords="1307,424,1369,451"/>
+<area shape="rect" id="node20" href="$h_s_p_i_8h_source.html" title="hSPI.h" alt="" coords="1446,424,1508,451"/>
+<area shape="rect" id="node28" href="$gqueue_8h_source.html" title="gqueue.h" alt="" coords="1176,499,1257,525"/>
+<area shape="rect" id="node37" href="$h_p_i_d_8h_source.html" title="hPID.h" alt="" coords="1553,275,1615,301"/>
+</map>

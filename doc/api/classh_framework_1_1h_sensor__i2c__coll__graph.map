@@ -1,0 +1,15 @@
+<map id="hFramework::hSensor_i2c" name="hFramework::hSensor_i2c">
+<area shape="rect" id="node2" href="$classh_framework_1_1h_sensor.html" title="base implementation for on&#45;board hSensor port. " alt="" coords="1112,157,1272,184"/>
+<area shape="rect" id="node3" href="$classh_framework_1_1interfaces_1_1_i_sensor.html" title="Interface to hSensor port. " alt="" coords="815,59,985,101"/>
+<area shape="rect" id="node12" href="$classh_framework_1_1interfaces_1_1_i_sensor__i2c.html" title="Interface to I2C capable hSensor port. " alt="" coords="1107,75,1277,117"/>
+<area shape="rect" id="node4" href="$classh_framework_1_1h_g_p_i_o.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO). " alt="" coords="239,175,385,201"/>
+<area shape="rect" id="node7" href="$classh_framework_1_1h_g_p_i_o__adc.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO) with ADC capability. " alt="" coords="491,128,667,155"/>
+<area shape="rect" id="node9" href="$classh_framework_1_1h_g_p_i_o__int.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO) with interrupt capability..." alt="" coords="494,77,663,104"/>
+<area shape="rect" id="node13" href="$classh_framework_1_1h_i2_c.html" title="Implementation of on&#45;board I2C interface. " alt="" coords="511,307,646,333"/>
+<area shape="rect" id="node5" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o.html" title="Interface for General Purpose Input&#45;Output pin (GPIO). " alt="" coords="5,105,176,146"/>
+<area shape="rect" id="node8" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__adc.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with ADC capability. " alt="" coords="227,105,397,146"/>
+<area shape="rect" id="node10" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__int.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with interrupt capability. " alt="" coords="227,38,397,79"/>
+<area shape="rect" id="node6" href="$classh_framework_1_1h_g_p_i_o__super.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO) with interrupt and ADC capability..." alt="" coords="805,127,995,153"/>
+<area shape="rect" id="node11" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__super.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with interrupt and ADC capability. " alt="" coords="493,5,664,46"/>
+<area shape="rect" id="node14" href="$classh_framework_1_1interfaces_1_1_i_i2_c.html" title="Interface for I2C. " alt="" coords="227,331,397,373"/>
+</map>

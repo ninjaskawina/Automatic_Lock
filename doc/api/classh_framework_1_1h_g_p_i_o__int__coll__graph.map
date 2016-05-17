@@ -1,0 +1,5 @@
+<map id="hFramework::hGPIO_int" name="hFramework::hGPIO_int">
+<area shape="rect" id="node2" href="$classh_framework_1_1h_g_p_i_o.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO). " alt="" coords="5,104,152,131"/>
+<area shape="rect" id="node3" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o.html" title="Interface for General Purpose Input&#45;Output pin (GPIO). " alt="" coords="84,6,255,47"/>
+<area shape="rect" id="node4" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__int.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with interrupt capability. " alt="" coords="176,97,347,138"/>
+</map>

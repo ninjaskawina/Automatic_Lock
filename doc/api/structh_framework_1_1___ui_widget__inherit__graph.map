@@ -1,0 +1,12 @@
+<map id="hFramework::_UiWidget" name="hFramework::_UiWidget">
+<area shape="rect" id="node2" href="$structh_framework_1_1___ui_widget_with_text.html" title="hFramework::_UiWidgetWithText" alt="" coords="225,107,447,133"/>
+<area shape="rect" id="node8" href="$structh_framework_1_1_ui_console.html" title="hFramework::UiConsole" alt="" coords="251,157,421,184"/>
+<area shape="rect" id="node9" href="$structh_framework_1_1_ui_progress_bar.html" title="hFramework::UiProgressBar" alt="" coords="237,208,435,235"/>
+<area shape="rect" id="node10" href="$structh_framework_1_1_ui_slider.html" title="hFramework::UiSlider" alt="" coords="258,259,414,285"/>
+<area shape="rect" id="node11" href="$structh_framework_1_1_ui_video.html" title="hFramework::UiVideo" alt="" coords="258,309,414,336"/>
+<area shape="rect" id="node3" href="$structh_framework_1_1_ui_button.html" title="hFramework::UiButton" alt="" coords="515,5,677,32"/>
+<area shape="rect" id="node4" href="$structh_framework_1_1_ui_check_box.html" title="hFramework::UiCheckBox" alt="" coords="505,56,687,83"/>
+<area shape="rect" id="node5" href="$structh_framework_1_1_ui_input.html" title="hFramework::UiInput" alt="" coords="520,107,672,133"/>
+<area shape="rect" id="node6" href="$structh_framework_1_1_ui_label.html" title="hFramework::UiLabel" alt="" coords="519,157,673,184"/>
+<area shape="rect" id="node7" href="$structh_framework_1_1_ui_radio_button.html" title="hFramework::UiRadioButton" alt="" coords="497,208,695,235"/>
+</map>

@@ -1,0 +1,28 @@
+var classh_framework_1_1h_motor =
+[
+    [ "hMotor", "classh_framework_1_1h_motor.html#a84f5a7b895a55cf5b6e2d0a08b1b5725", null ],
+    [ "attachPositionRegulator", "classh_framework_1_1h_motor.html#a7c24acf18d9eb2f250a3050de4ca259d", null ],
+    [ "calibrate", "classh_framework_1_1h_motor.html#a53a55a19a320fbfc18862a7d420f8b23", null ],
+    [ "getEncoderCnt", "classh_framework_1_1h_motor.html#a98d617d39eb5f8b0c67268a1fb94157e", null ],
+    [ "getEncoderPolarity", "classh_framework_1_1h_motor.html#a1ad322f1aae2c5a3d670b43d9e711212", null ],
+    [ "getMotorNr", "classh_framework_1_1h_motor.html#a06552afccf105bcc29daa491d5fa41af", null ],
+    [ "getMotorPolarity", "classh_framework_1_1h_motor.html#aa590693e8c318729404befa4038a3286", null ],
+    [ "releaseServo", "classh_framework_1_1h_motor.html#a29ab52525257ebaade534729fe1b5d7f", null ],
+    [ "resetEncoderCnt", "classh_framework_1_1h_motor.html#a994969a6a5a7e04691bc9d4d3c2bb048", null ],
+    [ "rotAbs", "classh_framework_1_1h_motor.html#a613df229aa643f98605d13d2ef4069c7", null ],
+    [ "rotRel", "classh_framework_1_1h_motor.html#ae2da81f31c0d67c78bed7d2dba3cf805", null ],
+    [ "setActiveBreaking", "classh_framework_1_1h_motor.html#add661e517d70c9c92a3292c2a5c6b04d", null ],
+    [ "setEncoderPolarity", "classh_framework_1_1h_motor.html#afe30df12ff8c96de79e5aff3281cdac0", null ],
+    [ "setMotorPolarity", "classh_framework_1_1h_motor.html#ab32166db8fd5a12f9fab39de66af21f1", null ],
+    [ "setParallelMode", "classh_framework_1_1h_motor.html#a5c2860f7177d585de0976f427ba55d2d", null ],
+    [ "setPassiveBreaking", "classh_framework_1_1h_motor.html#ad8f9d80302c6231ee7ff6d5e5221521a", null ],
+    [ "setPower", "classh_framework_1_1h_motor.html#ac89289b12180ca324f4db6e45514f093", null ],
+    [ "setPowerLimit", "classh_framework_1_1h_motor.html#a2975a661d90da03dbe986f45c43130a0", null ],
+    [ "setSingleMode", "classh_framework_1_1h_motor.html#a289a8a8951872e7fb381ec659f56e70c", null ],
+    [ "setSlewRate", "classh_framework_1_1h_motor.html#a5917aaca792c2db9cb963e76a42f5bb2", null ],
+    [ "stop", "classh_framework_1_1h_motor.html#acebda6e75506b5f7d1e00dd28407b529", null ],
+    [ "stopRegulation", "classh_framework_1_1h_motor.html#a47e2d50897cb6fd4c9dac457ed88605d", null ],
+    [ "useAsServo", "classh_framework_1_1h_motor.html#a2cafa366709ddb9475b13119197ddd46", null ],
+    [ "waitDone", "classh_framework_1_1h_motor.html#ab288f6416b4f87e8dca7fdd845b26f01", null ],
+    [ "hSystem", "classh_framework_1_1h_motor.html#a7e8a9db7279b4058c67b696672c016cc", null ]
+];

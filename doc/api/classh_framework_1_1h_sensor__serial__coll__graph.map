@@ -1,0 +1,18 @@
+<map id="hFramework::hSensor_serial" name="hFramework::hSensor_serial">
+<area shape="rect" id="node2" href="$classh_framework_1_1h_sensor.html" title="base implementation for on&#45;board hSensor port. " alt="" coords="1421,157,1581,184"/>
+<area shape="rect" id="node3" href="$classh_framework_1_1interfaces_1_1_i_sensor.html" title="Interface to hSensor port. " alt="" coords="1124,59,1295,101"/>
+<area shape="rect" id="node12" href="$classh_framework_1_1interfaces_1_1_i_sensor__serial.html" title="Interface to Serial capable hSensor port. " alt="" coords="1416,75,1587,117"/>
+<area shape="rect" id="node4" href="$classh_framework_1_1h_g_p_i_o.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO). " alt="" coords="556,163,703,189"/>
+<area shape="rect" id="node7" href="$classh_framework_1_1h_g_p_i_o__adc.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO) with ADC capability. " alt="" coords="800,128,976,155"/>
+<area shape="rect" id="node9" href="$classh_framework_1_1h_g_p_i_o__int.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO) with interrupt capability..." alt="" coords="803,77,973,104"/>
+<area shape="rect" id="node13" href="$classh_framework_1_1h_serial.html" title="Serial port (UART) interface. " alt="" coords="813,307,963,333"/>
+<area shape="rect" id="node5" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o.html" title="Interface for General Purpose Input&#45;Output pin (GPIO). " alt="" coords="321,71,492,113"/>
+<area shape="rect" id="node8" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__adc.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with ADC capability. " alt="" coords="544,71,715,113"/>
+<area shape="rect" id="node10" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__int.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with interrupt capability. " alt="" coords="544,5,715,46"/>
+<area shape="rect" id="node6" href="$classh_framework_1_1h_g_p_i_o__super.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO) with interrupt and ADC capability..." alt="" coords="1115,127,1304,153"/>
+<area shape="rect" id="node11" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o__super.html" title="Interface for General Purpose Input&#45;Output pin (GPIO) with interrupt and ADC capability. " alt="" coords="803,11,973,53"/>
+<area shape="rect" id="node14" href="$classh_framework_1_1interfaces_1_1_i_serial.html" title="Interface to the serial port. This is a restricted version of hSerial. " alt="" coords="544,331,715,373"/>
+<area shape="rect" id="node15" href="$classh_framework_1_1h_printf_dev.html" title="Provides printf and vprintf methods as extension to hStreamDev. " alt="" coords="320,339,493,365"/>
+<area shape="rect" id="node16" href="$classh_framework_1_1h_stream_dev.html" title="Stream device interface. " alt="" coords="6,313,194,340"/>
+<area shape="rect" id="node17" href="$classh_framework_1_1h_mutex.html" title="Mutex class. " alt="" coords="23,364,177,391"/>
+</map>

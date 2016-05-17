@@ -1,0 +1,5 @@
+<map id="hFramework::interfaces::ISerial" name="hFramework::interfaces::ISerial">
+<area shape="rect" id="node2" href="$classh_framework_1_1h_printf_dev.html" title="Provides printf and vprintf methods as extension to hStreamDev. " alt="" coords="109,96,283,123"/>
+<area shape="rect" id="node3" href="$classh_framework_1_1h_stream_dev.html" title="Stream device interface. " alt="" coords="5,5,192,32"/>
+<area shape="rect" id="node4" href="$classh_framework_1_1h_mutex.html" title="Mutex class. " alt="" coords="217,5,371,32"/>
+</map>

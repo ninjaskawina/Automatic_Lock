@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classh_framework_1_1h_p_i_d.html" title="hFramework::hPID" alt="" coords="25,5,161,32"/>
+<area shape="rect" id="node2" href="$classh_p_i_d_regulator.html" title="hPIDRegulator" alt="" coords="230,31,341,57"/>
+<area shape="rect" id="node3" href="$classh_framework_1_1h_regulator.html" title="Virtual regulator class that provides interface for different types of motor regulators (see hMotor)..." alt="" coords="6,56,181,83"/>
+</map>

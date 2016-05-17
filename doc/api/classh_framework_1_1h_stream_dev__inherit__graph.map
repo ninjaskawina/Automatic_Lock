@@ -1,0 +1,10 @@
+<map id="hFramework::hStreamDev" name="hFramework::hStreamDev">
+<area shape="rect" id="node2" href="$classh_framework_1_1h_printf_dev.html" title="Provides printf and vprintf methods as extension to hStreamDev. " alt="" coords="243,107,416,133"/>
+<area shape="rect" id="node9" href="$classh_framework_1_1h_u_s_b.html" title="Provides USB interface to Android Open Accessory. " alt="" coords="258,157,401,184"/>
+<area shape="rect" id="node3" href="$classh_framework_1_1_dev_null.html" title="Null device. " alt="" coords="479,5,635,32"/>
+<area shape="rect" id="node4" href="$classh_framework_1_1h_cloud_client.html" title="Provides access to the RoboCORE platform. " alt="" coords="464,56,651,83"/>
+<area shape="rect" id="node5" href="$classh_framework_1_1h_local_serial.html" title="hFramework::hLocalSerial" alt="" coords="465,107,649,133"/>
+<area shape="rect" id="node6" href="$classh_framework_1_1h_s_d_log.html" title="Provides SD card based log device. " alt="" coords="479,157,636,184"/>
+<area shape="rect" id="node7" href="$classh_framework_1_1interfaces_1_1_i_serial.html" title="Interface to the serial port. This is a restricted version of hSerial. " alt="" coords="472,209,643,250"/>
+<area shape="rect" id="node8" href="$classh_framework_1_1h_serial.html" title="Serial port (UART) interface. " alt="" coords="699,216,850,243"/>
+</map>

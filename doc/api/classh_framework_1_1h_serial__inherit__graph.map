@@ -1,0 +1,5 @@
+<map id="hFramework::hSerial" name="hFramework::hSerial">
+<area shape="rect" id="node2" href="$classh_framework_1_1interfaces_1_1_i_serial.html" title="Interface to the serial port. This is a restricted version of hSerial. " alt="" coords="13,155,184,197"/>
+<area shape="rect" id="node3" href="$classh_framework_1_1h_printf_dev.html" title="Provides printf and vprintf methods as extension to hStreamDev. " alt="" coords="12,80,185,107"/>
+<area shape="rect" id="node4" href="$classh_framework_1_1h_stream_dev.html" title="Stream device interface. " alt="" coords="5,5,192,32"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="hPIDRegulator" name="hPIDRegulator">
+<area shape="rect" id="node2" href="$classh_framework_1_1h_regulator.html" title="Virtual regulator class that provides interface for different types of motor regulators (see hMotor)..." alt="" coords="5,5,179,32"/>
+<area shape="rect" id="node3" href="$classh_framework_1_1h_p_i_d.html" title="hFramework::hPID" alt="" coords="204,5,339,32"/>
+</map>

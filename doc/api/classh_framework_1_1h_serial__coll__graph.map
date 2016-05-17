@@ -1,0 +1,8 @@
+<map id="hFramework::hSerial" name="hFramework::hSerial">
+<area shape="rect" id="node2" href="$classh_framework_1_1interfaces_1_1_i_serial.html" title="Interface to the serial port. This is a restricted version of hSerial. " alt="" coords="116,190,287,231"/>
+<area shape="rect" id="node3" href="$classh_framework_1_1h_printf_dev.html" title="Provides printf and vprintf methods as extension to hStreamDev. " alt="" coords="109,104,283,131"/>
+<area shape="rect" id="node4" href="$classh_framework_1_1h_stream_dev.html" title="Stream device interface. " alt="" coords="5,5,192,32"/>
+<area shape="rect" id="node5" href="$classh_framework_1_1h_mutex.html" title="Mutex class. " alt="" coords="217,5,371,32"/>
+<area shape="rect" id="node6" href="$classh_framework_1_1h_g_p_i_o.html" title="Implementation of on&#45;board General Purpose Input&#45;Output pin (GPIO). " alt="" coords="317,197,464,224"/>
+<area shape="rect" id="node7" href="$classh_framework_1_1interfaces_1_1_i_g_p_i_o.html" title="Interface for General Purpose Input&#45;Output pin (GPIO). " alt="" coords="307,97,477,138"/>
+</map>
